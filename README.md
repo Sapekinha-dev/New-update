@@ -425,7 +425,6 @@ if OriginalSizes[key] then
 part.Size = OriginalSizes[key].Size
 part.CanCollide = OriginalSizes[key].CanCollide
 part.Massless = OriginalSizes[key].Massless
-part.Transparency = OriginalSizes[key].Transparency
 end
 if HitboxVisuals[key] then
 HitboxVisuals[key]:Destroy()
@@ -494,12 +493,11 @@ local part = char:FindFirstChild(“Torso”) or char:FindFirstChild(“UpperTor
 if not part then return end
 local key = player.UserId .. “_torso”
 if not OriginalSizes[key] then
-OriginalSizes[key] = {Size = part.Size, CanCollide = part.CanCollide, Massless = part.Massless, Transparency = part.Transparency}
+OriginalSizes[key] = {Size = part.Size, CanCollide = part.CanCollide, Massless = part.Massless}
 end
 part.Size = Vector3.new(Settings.HitboxSize, Settings.HitboxSize, Settings.HitboxSize)
 part.CanCollide = false
 part.Massless = true
-part.Transparency = 1
 if Settings.ShowHitbox and not HitboxVisuals[key] then
 local box = Instance.new(“BoxHandleAdornment”)
 box.Size = Vector3.new(Settings.HitboxSize, Settings.HitboxSize, Settings.HitboxSize)
